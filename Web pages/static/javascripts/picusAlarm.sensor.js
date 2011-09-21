@@ -42,6 +42,10 @@ var SensorManager = (function() {
               if ($(this).val() == data.address) {
                 $(this).parent().find('span.sensor_value').text(data.value);
                 if (data.triggered == '1') {
+                  var audio = $('audio').get(0);
+
+                  audio.currentTime = 0;
+                  audio.play();
                   $(this).parent().addClass('triggered');
                 } else {
                   $(this).parent().removeClass('triggered');
@@ -200,7 +204,6 @@ var Sensor = (function(data) {
       $this.val('Delete');
       SensorManager.addSensor($sensor);
       SensorManager.addEmptySensor();
-
     } else {
       SensorManager.delSensor($sensor);
     }
