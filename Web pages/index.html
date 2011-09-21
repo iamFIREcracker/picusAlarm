@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>picusAlarm</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/static/stylesheets/main.css" />
+    <script src="/static/javascripts/jquery-1.5.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/javascripts/picusAlarm.logger.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="/static/javascripts/picusAlarm.owner.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="/static/javascripts/picusAlarm.sensor.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+      jQuery(function() {
+          Logger.onReady();
+          //Owner.onReady();
+          SensorManager.onReady();
+          setTimeout(SensorManager.loadSensors, 500);
+      })
+    </script>
+  </head>
+  <body>
+    <div id="screen"></div>
+    <div id="container">
+      <div id="header">
+        <h1>picusAlarm</h1>
+      </div>
+      <!--<div id="owner">-->
+        <!--<h2>Owner data</h2>-->
+      <!--</div>-->
+      <div id="sensors">
+        <h2>New sensor</h2>
+        <div id="empty_sensor"></div>
+        <h2>Configured sensors</h2>
+        <div id="configured_sensors"></div>
+        <br />
+        <input type="button" value="Save configuration" id="sensors_save" class="submit" />
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+    <br />
+    <br />
+  </body>
+</html>
