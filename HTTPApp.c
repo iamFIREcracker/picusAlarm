@@ -103,7 +103,7 @@ HTTP_IO_RESULT HTTPExecuteGet(void)
 		sensors[id].address       = id; /* CUIDADO: address is assumed equal to id */
 		sensors[id].threshold     = atoi(getHttpParam("threshold"));
 		sensors[id].triggerType   = atoi(getHttpParam("triggerType"));
-		strcpy(getHttpParam("name"), sensors[id].name);
+		strcpy(sensors[id].name, getHttpParam("name"));
 
 		saveConfig();
 	}
